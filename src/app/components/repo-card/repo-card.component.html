@@ -1,0 +1,30 @@
+<a
+  [href]="repo().html_url"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="repo-card"
+>
+  <div class="repo-card__header">
+    <img
+      [src]="repo().owner.avatar_url"
+      [alt]="repo().owner.login"
+      class="repo-card__avatar"
+      width="40"
+      height="40"
+      loading="lazy"
+    />
+    <div class="repo-card__title-row">
+      <span class="repo-card__name">{{ repo().full_name }}</span>
+      <span class="repo-card__stars" aria-label="Star count">★ {{ repo().stargazers_count | formatStat }}</span>
+    </div>
+  </div>
+  <p class="repo-card__description" [title]="repo().description || ''">
+    {{ descriptionDisplay() }}
+  </p>
+  <div class="repo-card__meta">
+    @if (hasLanguage()) {
+      <span class="repo-card__language">{{ repo().language }}</span>
+    }
+    <span class="repo-card__stars-display">★ {{ repo().stargazers_count | formatStat }}</span>
+  </div>
+</a>

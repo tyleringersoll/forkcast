@@ -1,0 +1,71 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.repo-list {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.repo-list__main {
+  flex: 1;
+  padding: $space-6 $space-4;
+  max-width: $container-max;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.repo-list__grid {
+  display: grid;
+  gap: $space-6;
+  grid-template-columns: 1fr;
+
+  @include respond-to('sm') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include respond-to('xl') {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.error-state,
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-4;
+  padding: $space-16;
+  text-align: center;
+}
+
+.error-state__message,
+.empty-state__message {
+  margin: 0;
+  font-size: $text-lg;
+  color: $color-text-secondary;
+}
+
+.error-state__retry {
+  padding: $space-2 $space-5;
+  font-size: $text-base;
+  font-weight: $font-medium;
+  color: $color-bg-primary;
+  background-color: $color-accent;
+  border: none;
+  border-radius: $radius-md;
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background-color: $color-accent-hover;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}

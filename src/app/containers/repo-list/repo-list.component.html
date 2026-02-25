@@ -1,0 +1,36 @@
+<div class="repo-list">
+  <app-nav-bar
+    [searchValue]="searchTerm()"
+    [isDark]="isDarkTheme()"
+    (searchQuery)="onSearch($event)"
+    (themeToggle)="onThemeToggle()"
+  />
+
+  <main class="repo-list__main">
+    @if (loading()) {
+      <div class="repo-list__grid" role="status" aria-label="Loading repositories">
+        @for (i of skeletonCount; track i) {
+          <app-skeleton-card />
+        }
+      </div>
+    } @else if (error()) {
+      <div class="error-state">
+        <p class="error-state__message">{{ error() }}</p>
+        <button type="button" class="error-state__retry" (click)="onRetry()">
+          Try again
+        </button>
+      </div>
+    } @else {
+      <div class="repo-list__grid">
+        @for (repo of filteredRepos(); track repo.id) {
+          <app-repo-card [repo]="repo" />
+        }
+      </div>
+      @if (filteredRepos().length === 0) {
+        <div class="empty-state">
+          <p class="empty-state__message">No repositories found.</p>
+        </div>
+      }
+    }
+  </main>
+</div>

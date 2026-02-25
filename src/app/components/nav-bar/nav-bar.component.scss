@@ -1,0 +1,90 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-4;
+  height: $nav-height;
+  padding: 0 $space-4;
+  background-color: $color-bg-secondary;
+  border-bottom: 1px solid $color-border;
+  box-shadow: $shadow-sm;
+}
+
+.nav-bar__brand {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.nav-bar__logo {
+  font-size: $text-2xl;
+  line-height: 1;
+}
+
+.nav-bar__title {
+  margin: 0;
+  font-size: $text-xl;
+  font-weight: $font-bold;
+  color: $color-text-primary;
+  letter-spacing: -0.02em;
+}
+
+.nav-bar__actions {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  flex: 1;
+  max-width: 400px;
+  margin-left: auto;
+}
+
+.search-bar__input {
+  flex: 1;
+  height: 40px;
+  padding: 0 $space-3;
+  font-size: $text-sm;
+  color: $color-text-primary;
+  background-color: $color-bg-tertiary;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  transition: border-color $transition-fast, box-shadow $transition-fast;
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+
+  &:focus {
+    @include focus-ring;
+    border-color: $color-accent;
+    outline: none;
+  }
+}
+
+.nav-bar__theme-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  font-size: $text-lg;
+  background: transparent;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  transition: background-color $transition-fast, border-color $transition-fast;
+
+  &:hover {
+    background-color: $color-bg-tertiary;
+    border-color: $color-text-muted;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}

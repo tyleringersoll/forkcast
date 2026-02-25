@@ -1,0 +1,80 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+// Intentional anti-pattern: hardcoded colors below bypass the variables system
+.skeleton-card {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  padding: $space-5;
+  background-color: $color-bg-secondary;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+}
+
+.skeleton-card__header {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.skeleton-card__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-md;
+  flex-shrink: 0;
+}
+
+.skeleton-card__title-block {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  flex: 1;
+}
+
+.skeleton-card__line {
+  height: 1rem;
+  border-radius: $radius-sm;
+  @include skeleton-pulse;
+}
+
+.skeleton-card__line--title {
+  width: 70%;
+  height: 1rem;
+}
+
+.skeleton-card__line--sub {
+  width: 40%;
+  height: 0.75rem;
+}
+
+.skeleton-card__line--desc {
+  width: 100%;
+}
+
+.skeleton-card__line--short {
+  width: 85%;
+}
+
+.skeleton-card__meta {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-top: auto;
+}
+
+.skeleton-card__line--badge {
+  width: 60px;
+  height: 24px;
+  border-radius: $radius-sm;
+  background: #cbd5e1;
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+.skeleton-card__line--small {
+  width: 50px;
+  height: 14px;
+  margin-left: auto;
+  background-color: #94a3b8;
+  border-radius: 4px;
+}

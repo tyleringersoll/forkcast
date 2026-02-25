@@ -1,0 +1,58 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+// Global theme class applied to body/html
+.theme-dark {
+  body {
+    background-color: $color-bg-primary-dark;
+    color: $color-text-primary-dark;
+  }
+
+  .nav-bar {
+    background-color: $color-bg-secondary-dark;
+    border-bottom-color: $color-border-dark;
+  }
+
+  .repo-card {
+    background-color: $color-bg-secondary-dark;
+    border-color: $color-border-dark;
+
+    &:hover {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .repo-card__name {
+    color: $color-text-primary-dark;
+  }
+
+  .repo-card__description,
+  .repo-card__meta {
+    color: $color-text-secondary-dark;
+  }
+
+  .search-bar__input {
+    background-color: $color-bg-tertiary-dark;
+    border-color: $color-border-dark;
+    color: $color-text-primary-dark;
+
+    &::placeholder {
+      color: $color-text-muted-dark;
+    }
+  }
+
+  .error-state__message {
+    color: $color-text-secondary-dark;
+  }
+
+  .skeleton-card__line {
+    @include skeleton-pulse;
+    background: linear-gradient(
+      90deg,
+      $color-skeleton-dark 25%,
+      $color-skeleton-shine-dark 50%,
+      $color-skeleton-dark 75%
+    );
+    background-size: 200% 100%;
+  }
+}

@@ -1,0 +1,24 @@
+<header class="nav-bar">
+  <div class="nav-bar__brand">
+    <span class="nav-bar__logo" aria-hidden="true">⚡</span>
+    <h1 class="nav-bar__title">Forkcast</h1>
+  </div>
+  <div class="nav-bar__actions">
+    <input
+      type="search"
+      class="search-bar__input"
+      placeholder="Search repositories..."
+      [value]="searchValue()"
+      (input)="onSearchInput($any($event.target).value)"
+      aria-label="Search repositories"
+    />
+    <button
+      type="button"
+      class="nav-bar__theme-btn"
+      (click)="onThemeToggle()"
+      aria-label="Toggle theme"
+    >
+      {{ isDark() ? '☀️' : '🌙' }}
+    </button>
+  </div>
+</header>
