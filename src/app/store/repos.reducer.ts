@@ -19,7 +19,6 @@ export const reposReducer = createReducer(
   on(loadRepos, (state) => ({
     ...state,
     loading: true,
-    // Intentional: error is NOT cleared here, so retry causes flicker
   })),
   on(loadReposSuccess, (state, { repos }) => ({
     ...state,

@@ -10,7 +10,6 @@ export class GithubService {
   constructor(private http: HttpClient) {}
 
   getTrendingRepos(query?: string): Observable<GitHubSearchResponse> {
-    // Intentional: search triggers API re-fetch on every keystroke instead of client-side filter
     const q = query?.trim()
       ? `stars:>10000 ${query}`
       : 'stars:>10000';

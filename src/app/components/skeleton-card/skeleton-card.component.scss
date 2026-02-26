@@ -1,7 +1,6 @@
 @use '../../../styles/variables' as *;
 @use '../../../styles/mixins' as *;
 
-// Intentional anti-pattern: hardcoded colors below bypass the variables system
 .skeleton-card {
   display: flex;
   flex-direction: column;
